@@ -59,6 +59,11 @@ table, th, td {
 </head>
 <body>
   <h1>Daily schedule</h1>
+  {% for item in people %}
+  <form action="/choose" method="post">
+      <input type="submit" id="{{ item }}" name="{{ item }}" value="{{ item }}">
+  </form>
+  {% endfor %}
 
   <table style="margin-left: auto; margin-right: auto;">
     <thead>
