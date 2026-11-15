@@ -34,6 +34,7 @@ def update_site():
             "sleep mins" : newSleepTime
         } 
     }   
+
     with open('currentHealth.json', 'w') as file:
         json.dump(new_json, file, indent=4)
     file.close()
@@ -42,18 +43,3 @@ def update_site():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-"""
-{
-    "Zack Short" :{
-        "current blood pressure" : [[150,80]], 
-        "bone density decay" : -0.18, 
-        "heart rate rest" : [30],
-        "body temp" : [38],
-        "weight gain/loss" : -0.06,
-        "sleep mins" : 360
-    }
-
-
-}
-"""

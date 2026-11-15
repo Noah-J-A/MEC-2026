@@ -1,14 +1,33 @@
 {
-    "daily schedule" : [
-        {"task" : "sleep", "start_time" : "22:00", "duration" : 480},
-        {"task" : "breakfast", "start_time" : "06:00", "duration" : 15},
-        {"task" : "spacewalk", "start_time" : "7:00", "duration" : 360},
-        {"task" : "lunch", "start_time" : "13:00", "duration" : 15},
-        {"task" : "photography", "start_time" : "13:30", "duration" : 45},
-        {"task" : "research", "start_time" : "14:30", "duration" : 90},
-        {"task" : "medication", "start_time" : "16:15", "duration" : 60},
-        {"task" : "exercise", "start_time" : "17:30", "duration" : 90},
-        {"task" : "dinner", "start_time" : "19:00", "duration" : 30},
-        {"task" : "family time", "start_time" : "19:45", "duration" : 120}
-    ]
+    "Zack Short": 
+    {
+        "daily schedule" : [
+            {"task" : "sleep", "start_time" : "22:00", "duration" : 480},
+            {"task" : "breakfast", "start_time" : "06:00", "duration" : 15},
+            {"task" : "spacewalk", "start_time" : "7:00", "duration" : 360},
+            {"task" : "lunch", "start_time" : "13:00", "duration" : 15},
+            {"task" : "photography", "start_time" : "13:30", "duration" : 45},
+            {"task" : "research", "start_time" : "14:30", "duration" : 90},
+            {"task" : "medication", "start_time" : "16:15", "duration" : 60},
+            {"task" : "exercise", "start_time" : "17:30", "duration" : 90},
+            {"task" : "dinner", "start_time" : "19:00", "duration" : 30},
+            {"task" : "family time", "start_time" : "19:45", "duration" : 120}
+        ]
+    },
+
+    "Gareth Jeans": 
+    {
+        "daily schedule" : [
+            {"task" : "sleep", "start_time" : "2:00", "duration" : 240},
+            {"task" : "breakfast", "start_time" : "06:00", "duration" : 15},
+            {"task" : "spacewalk", "start_time" : "7:00", "duration" : 360},
+            {"task" : "lunch", "start_time" : "13:00", "duration" : 15},
+            {"task" : "photography", "start_time" : "13:30", "duration" : 45},
+            {"task" : "research", "start_time" : "14:30", "duration" : 90},
+            {"task" : "medication", "start_time" : "16:15", "duration" : 60},
+            {"task" : "exercise", "start_time" : "17:30", "duration" : 90},
+            {"task" : "dinner", "start_time" : "19:00", "duration" : 30},
+            {"task" : "family time", "start_time" : "19:45", "duration" : 120}
+        ]
+    }  
 }
