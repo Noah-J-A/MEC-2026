@@ -1,12 +1,21 @@
 import json
 from pathlib import Path
+<<<<<<< Updated upstream
 from flask import Flask, render_template, request
+=======
+from flask import Flask, render_template
+from health_test_functions import overall_health
+>>>>>>> Stashed changes
 
 app = Flask(__name__)
 BASE = Path(__file__).parent
 
-with open(BASE / "schedule.json", "r") as file:
-    data = json.load(file)
+if len(overall_health.problems) == 0:
+    with open(BASE / "schedule.json", "r") as file:
+        data = json.load(file)
+else:
+    with open(BASE / "variable_schedule.json", "r") as file:
+            data = json.load(file)
 
 
 def time_to_minutes(time): # 6am is considered time 0 to avoid issues when moving past midnight

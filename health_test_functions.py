@@ -125,11 +125,8 @@ def sleep(name, current_sleep):
 
 problems = []
 def overall_health(name):
-    file_health =  open("health.json", "r", encoding="utf-8")
-    health = json.load(file_health)
     file_current_health = open("currentHealth.json" , "r", encoding="utf-8")
     current_health = json.load(file_current_health)
-    health = 0
 
     blood_pressure = blood_pressure(name, current_health[name]["current blood pressure"][0])
     if blood_pressure > 5:
@@ -155,7 +152,6 @@ def overall_health(name):
     if sleep > 5:
         problems.append("sleep")
 
-    file_health.close()
     file_current_health.close()
     return problems
 

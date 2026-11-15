@@ -1,15 +1,43 @@
 from health_test_functions import overall_health
 import json
+from pathlib import Path
 
-with open("health.json", "r", encoding="utf-8") as file:
+BASE = Path(__file__).parent
+
+def remove_task(schedule, task_name):
+    return [item for item in schedule if item["task"] != task_name]
+
+def change_duration(schedule, task_name, new_duration):
+    for item in schedule:
+        if item["task"] == task_name:
+            item["duration"] = new_duration
+    return schedule
+
+def add_task(schedule, task_name, start_time, duration):
+    schedule.append({"task": task_name, "start_time": start_time, "duration": duration})
+    return schedule
+
+with open(BASE / "variable_schedule.json", "r", encoding="utf-8") as file:
     data = json.load(file)
 
+schedule = data["daily schedule"]
+problems = overall_health.problems
 
-if len(overall_health.problems) > 0:
-    with open("variable_schedule.json", "r", encoding="utf-8") as file:
-        data = json.load(file)
+if "blood_pressure" in problems:
+    schedule = remove_task(schedule, "spacewalk")
 
-    if "blood_pressure" in overall_health.problems:
-        data[]
-    elif "bone_density" in overall_health.problems:
-        
+if "bone_density" in problems:
+    schedule = change_duration(schedule, "exercise", 120)
+
+if "heart_rate" in problems:
+    schedule = change_duration(schedule, "sleep", 540)
+
+if "body_temp" in problems:
+    schedule = add_task(schedule, "doctor's appointment", 30)
+
+if "weight" in problems:
+    schedule = change_duration(schedule, "exercise", 120)
+
+if "sleep" in problems:
+    schedule = remove_task(schedule, "photography")
+    schedule = change_duration(schedule, "sleep", 540)
