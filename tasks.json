@@ -1,7 +1,7 @@
 {
     "spacewalk" : {
-        "name" : "Required Maintenece Spacewalk",
-        "category" : "maintenece",
+        "name" : "Required Maintenance Spacewalk",
+        "category" : "maintenance",
         "importance" : 4,
         "health effects" : ["bone density, muscle"],
         "duration" : 90
