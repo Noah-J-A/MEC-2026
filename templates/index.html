@@ -6,10 +6,26 @@
     </head>
 
     <body>
-        <h1>{{ test }}</h1>
+        <h1>{{test}}</h1>
         <form action="/submit" method="post">
-            <label for="test">Test input</label>
-            <input type="text" id="test" name="test">
+            <label for="bp">Current Blood Pressure: </label>
+            <input type="text" id="bp" name="bp"> <br>
+
+            <label for="bdDecay">Bone Density Decay: </label>
+            <input type="text" id="bdDecay" name="bdDecay"> <br>
+
+            <label for="restHR">Resting Heart Rate: </label>
+            <input type="text" id="restHR" name="restHR"> <br>
+
+            <label for="bodyTemp">Body Temperature </label>
+            <input type="text" id="bodyTemp" name="bodyTemp"> <br>
+
+            <label for="weightChange">Weight Change: </label>
+            <input type="text" id="weightChange" name="weightChange"> <br>
+
+            <label for="sleep">Sleep Time (in mins): </label>
+            <input type="text" id="sleep" name="sleep"> <br>
+
             <input type="submit" value="Submit">
         </form>
     </body>
