@@ -4,9 +4,10 @@
         "bone density decay rate max" : -0.15, 
         "heart rate rest avg" : [53,60],
         "body temp avg" : [36.5,38.5],
-        "weight gain/loss max" : 0.05
-
+        "weight gain/loss max" : 0.05,
+        "sleep" : 480
     }
+    
 }
 
 
