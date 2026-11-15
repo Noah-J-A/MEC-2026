@@ -21,5 +21,7 @@ def add_task(name,category,importance,health_effects,duration):
 # bone desnsity = max bone decay rate T-score difference per month. average of 1%-1.5% bone density per month
 # heart rate = [low-end resting heart rate, high-end resting heart rate] (Maybe alter if astronaught is sleeping)
 # body temp = average 36.5°C to 38.5°C
+# body temp =  average 36.5°C to 38.5°C
+# weight = rate of weight gain or loss that warrents a doctors visit or check in 
 
 
