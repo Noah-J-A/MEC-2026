@@ -19,5 +19,12 @@
         "importance" : 3,
         "health effects" : "none",
         "duration" : 45
+    },
+    "experiments" : {
+        "name" : "Astronaut-Specific Research",
+        "category" : "research",
+        "importance" : 6,
+        "health effects" : "cognition",
+        "duration" : 90
     }
 }
