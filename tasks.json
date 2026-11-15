@@ -3,48 +3,48 @@
         "name" : "Required Maintenance Spacewalk",
         "category" : "maintenance",
         "importance" : 4,
-        "health_effects" : ["bone density", "muscle", "cardio"]
+        "physical_demand" : 7
     },
     "sleep" : {
         "name" : "Daily Sleep",
         "category" : "rest",
         "importance" : 9,
-        "health_effects" : ["sleep"]
+        "physical_demand" : 0
     },
     "photography" : {
         "name" : "Star / Earth Photos",
         "category" : "media",
         "importance" : 3,
-        "health_effects" : ["none"]
+        "physical_demand" : 1
     },
     "experiments" : {
         "name" : "Astronaut-Specific Research",
         "category" : "research",
         "importance" : 6,
-        "health_effects" : ["cognition"]
+        "physical_demand" : 2
     },
     "exercise" : {
         "name" : "Required Daily Exercise",
         "category" : "fitness",
         "importance" : 8,
-        "health_effects" : ["bone density", "muscle", "cognition", "cardio"]
+        "physical_demand" : 10
     },
     "meals" : {
         "name" : "3 Daily Meals",
         "category" : "nutrition",
         "importance" : 10,
-        "health_effects" : ["bone density", "muscle", "cognition"]
+        "physical_demand" : 3
     },
     "medication" : {
         "name" : "Daily Medical Tests",
         "category" : "health",
         "importance" : 9,
-        "health_effects" : ["bone density", "muscle"]
+        "physical_demand" : 2
     },
     "family time" : {
         "name" : "Call With Family",
         "category" : "social",
         "importance" : 7,
-        "health_effects" : ["cognition"]
+        "physical_demand" : 1
     }
 }

@@ -4,10 +4,9 @@ import time
 
 app = Flask(__name__)
 
-with open('tasks.json', 'r') as file:
+with open('currentHealth.json', 'r') as file:
     json_data = json.load(file)
-
-tasks = list(json_data.keys())
+file.close()
 
 @app.route('/')
 
@@ -17,9 +16,44 @@ def index():
 @app.route('/submit', methods=['POST'])
 
 def update_site():
-    new_name = request.form.get('test')
-    return render_template('index.html', test=new_name)
+    newBP = request.form.get('bp')
+    newBDDecay = request.form.get('bdDecay')
+    newRestHR = request.form.get('restHR')
+    newBodyTemp = request.form.get('bodyTemp')
+    newWeightChange = request.form.get('weightChange')
+    newSleepTime = request.form.get('sleep')
+    person = next(iter(json_data))
+
+    new_json = {
+        person: {
+            "current blood pressure" : newBP, 
+            "bone density decay" : newBDDecay, 
+            "heart rate rest" : newRestHR,
+            "body temp" : newBodyTemp,
+            "weight gain/loss" : newWeightChange,
+            "sleep mins" : newSleepTime
+        } 
+    }   
+    with open('currentHealth.json', 'w') as file:
+        json.dump(new_json, file, indent=4)
+    file.close()
+
+    return render_template('index.html', test=newBP)
 
 if __name__ == '__main__':
     app.run(debug=True)
 
+"""
+{
+    "Zack Short" :{
+        "current blood pressure" : [[150,80]], 
+        "bone density decay" : -0.18, 
+        "heart rate rest" : [30],
+        "body temp" : [38],
+        "weight gain/loss" : -0.06,
+        "sleep mins" : 360
+    }
+
+
+}
+"""
