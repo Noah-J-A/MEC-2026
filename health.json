@@ -6,6 +6,15 @@
         "body temp avg" : [36.5,38.5],
         "weight gain/loss max" : 0.05,
         "sleep" : 480
+    },
+
+    "Gareth Jeans" : {
+        "blood pressure safe range" : [[110,70],[120,75]], 
+        "bone density decay rate max" : -0.15, 
+        "heart rate rest avg" : [43,50],
+        "body temp avg" : [36.5,38.6],
+        "weight gain/loss max" : 0.06,
+        "sleep" : 481
     }
     
 }
