@@ -63,11 +63,11 @@ def heart_rate_rest(name, current_bpm):
     if current_bpm < bpm_min:
         if priority > 10.0:
             priority = 10.0
-        priority = round(abs(float(current_bpm)-float(min_bpm))/2, 2)
+        priority = round(abs(float(current_bpm)-float(bpm_min))/2, 2)
     if current_bpm > bpm_max:
         if priority > 10.0:
             priority = 10.0
-        priority = round(abs(float(current_bpm)-float(max_bpm))/2, 2)
+        priority = round(abs(float(current_bpm)-float(bpm_min))/2, 2)
     file.close()
     return(priority)
 
@@ -101,8 +101,8 @@ def weight(name, weight_lost_or_gained):
 
     max_weight_lost_or_gain = health[name]["weight gain/loss max"]
     priority = 0.0
-    if weight_lost_or_gain > max_weight_lost_or_gain:
-        priority = round(abs(float(weight_lost_or_gain)-float(max_weight_lost_or_gain)))
+    if weight_lost_or_gained > max_weight_lost_or_gain:
+        priority = round(abs(float(weight_lost_or_gained)-float(max_weight_lost_or_gain)))
         if priority > 10.0:
             priority = 10.0
     file.close()
@@ -116,7 +116,7 @@ def sleep(name, current_sleep):
 
     min_sleep = health[name]["sleep"]
     priority = 0.0
-    if current_sleep < sleep_min:
+    if current_sleep < min_sleep:
         priority = round(abs(float(sleep)-float(min_sleep)))
         if priority > 10.0:
             priority = 10.0
