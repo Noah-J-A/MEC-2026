@@ -8,8 +8,13 @@ body {
   padding: 0;
 }
 
-h2, p {
+p {
   margin: 15px;
+}
+
+h2 {
+  margin: 15px;
+  text-align: center;
 }
 
 ul {
@@ -66,7 +71,7 @@ table, th, td {
   {% endfor %}
 
   <table style="margin-left: auto; margin-right: auto;">
-    <thead>
+    <thead> <h2>{{ name }}</h2>
       <tr>
         <th>Time</th>
         <th>Task</th>
@@ -83,5 +88,27 @@ table, th, td {
       {% endfor %}
 </tbody>
   </table>
+  <h3>Input new health data for {{ name }}</h3>
+        <form action="/submit" method="post">
+            <label for="bp">Current Blood Pressure: </label>
+            <input type="text" id="bp" name="bp"> <br>
+
+            <label for="bdDecay">Bone Density Decay: </label>
+            <input type="text" id="bdDecay" name="bdDecay"> <br>
+
+            <label for="restHR">Resting Heart Rate: </label>
+            <input type="text" id="restHR" name="restHR"> <br>
+
+            <label for="bodyTemp">Body Temperature </label>
+            <input type="text" id="bodyTemp" name="bodyTemp"> <br>
+
+            <label for="weightChange">Weight Change: </label>
+            <input type="text" id="weightChange" name="weightChange"> <br>
+
+            <label for="sleep">Sleep Time (in mins): </label>
+            <input type="text" id="sleep" name="sleep"> <br>
+
+            <input type="submit" value="Submit">
+        </form>
 </body>
 </html>
