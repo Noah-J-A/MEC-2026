@@ -2,14 +2,38 @@
 <html>
 <head>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    th, td {
+      padding: 15px 15px;
+      text-align: center;
+      }
+    
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      }
+  </style>
 </head>
 <body>
-  {% for item in schedule %}
-  <div class="block">
-    <span class="time">{{ item.start_time }}</span>
-    <span class="task">{{ item.task }}</span>
-    <span class="duration">{{ item.duration }} minutes</span>
-  </div>
-{% endfor %}
+  <h1>Daily schedule</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Time</th>
+        <th>Task</th>
+        <th>Duration</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in schedule %}
+      <tr>
+        <td>{{ item.start_time }}</td>
+        <td>{{ item.task }}</td>
+        <td>{{ item.duration }} min</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 </body>
 </html>
