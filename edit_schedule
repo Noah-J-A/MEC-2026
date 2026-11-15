@@ -40,3 +40,5 @@ if "weight" in problems:
 if "sleep" in problems:
     schedule = remove_task(schedule, "photography")
     schedule = change_duration(schedule, "sleep", 540)
+
+file.close()
