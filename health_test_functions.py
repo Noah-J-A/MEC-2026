@@ -84,9 +84,58 @@ def body_temp(name, current_body_temp):
     priority = 0.0
     if current_body_temp < body_temp_min:
         priority = round(abs(float(current_body_temp)-float(body_temp_min)))
+        if priority > 10.0:
+            priority = 10.0
     if current_body_temp > body_temp_max:
         priority = round(abs(float(current_body_temp)-float(body_temp_min)))
+        if priority > 10.0:
+            priority = 10.0
     file.close()
     return(priority)
 
+def weight(name, weight_lost_or_gained):
+    '''
+    '''
+    file = open("health.json", "r", encoding="utf-8")
+    health = json.load(file)
+
+    max_weight_lost_or_gain = health[name]["weight gain/loss max"]
+    priority = 0.0
+    if weight_lost_or_gain > max_weight_lost_or_gain:
+        priority = round(abs(float(weight_lost_or_gain)-float(max_weight_lost_or_gain)))
+        if priority > 10.0:
+            priority = 10.0
+    file.close()
+    return(priority)
+
+def sleep(name, current_sleep):
+    '''
+    '''
+    file = open("health.json", "r", encoding="utf-8")
+    health = json.load(file)
+
+    min_sleep = health[name]["sleep"]
+    priority = 0.0
+    if current_sleep < sleep_min:
+        priority = round(abs(float(sleep)-float(min_sleep)))
+        if priority > 10.0:
+            priority = 10.0
+    file.close()
+    return(priority)
+
+def overall_health(name):
+    file_health =  open("health.json", "r", encoding="utf-8")
+    health = json.load(file_health)
+    file_current_health = open("currentHealth.json" , "r", encoding="utf-8")
+    current_health = json.load(file_current_health)
+    health = 0
+    health += blood_pressure(name, current_health[name]["current blood pressure"][0])
+    health += bone_density(name, current_health[name]["bone density decay"])
+    health += heart_rate_rest(name, current_health[name]["heart rate rest"])
+    health += body_temp(name, current_health[name]["body temp"])
+    health += weight(name, current_health[name]["weight gain/loss"])
+    health += sleep(name, current_health[name]["sleep mins"])
+    file_health.close()
+    file_current_health.close()
+    return(health)
 
