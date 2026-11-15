@@ -1,14 +1,20 @@
 import json
 from pathlib import Path
 from flask import Flask, render_template, request
+from health_test_functions import overall_health
 
 
 app = Flask(__name__)
 BASE = Path(__file__).parent
 
-
-with open(BASE / "schedule.json", "r") as file:
-    data = json.load(file)
+if len(overall_health.problems) == 0:
+    with open(BASE / "schedule.json", "r") as file:
+        data = json.load(file)
+    file.close()
+else:
+    with open(BASE / "variable_schedule.json", "r") as file:
+        data = json.load(file)
+    file.close()
 
 
 with open('currentHealth.json', 'r') as file:
