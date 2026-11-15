@@ -123,19 +123,39 @@ def sleep(name, current_sleep):
     file.close()
     return(priority)
 
+problems = []
 def overall_health(name):
     file_health =  open("health.json", "r", encoding="utf-8")
     health = json.load(file_health)
     file_current_health = open("currentHealth.json" , "r", encoding="utf-8")
     current_health = json.load(file_current_health)
     health = 0
-    health += blood_pressure(name, current_health[name]["current blood pressure"][0])
-    health += bone_density(name, current_health[name]["bone density decay"])
-    health += heart_rate_rest(name, current_health[name]["heart rate rest"])
-    health += body_temp(name, current_health[name]["body temp"])
-    health += weight(name, current_health[name]["weight gain/loss"])
-    health += sleep(name, current_health[name]["sleep mins"])
+
+    blood_pressure = blood_pressure(name, current_health[name]["current blood pressure"][0])
+    if blood_pressure > 5:
+        problems.append("blood_pressure")
+
+    bone_density = bone_density(name, current_health[name]["bone density decay"])
+    if bone_density > 5:
+        problems.append("bone_density")
+
+    heart_rate_rest = heart_rate_rest(name, current_health[name]["heart rate rest"])
+    if heart_rate_rest > 5:
+        problems.append("heart_rate")
+
+    body_temp = body_temp(name, current_health[name]["body temp"])
+    if body_temp > 5:
+        problems.append("body_temp")
+
+    weight = weight(name, current_health[name]["weight gain/loss"])
+    if weight > 5:
+        problems.append("weight")
+
+    sleep = sleep(name, current_health[name]["sleep mins"])
+    if sleep > 5:
+        problems.append("sleep")
+
     file_health.close()
     file_current_health.close()
-    return(health)
+    return problems
 

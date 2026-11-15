@@ -1,0 +1,15 @@
+from health_test_functions import overall_health
+import json
+
+with open("health.json", "r", encoding="utf-8") as file:
+    data = json.load(file)
+
+
+if len(overall_health.problems) > 0:
+    with open("variable_schedule.json", "r", encoding="utf-8") as file:
+        data = json.load(file)
+
+    if "blood_pressure" in overall_health.problems:
+        data[]
+    elif "bone_density" in overall_health.problems:
+        
