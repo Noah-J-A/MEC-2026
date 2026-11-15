@@ -1,4 +1,4 @@
-from health_test_functions import overall_health, problems
+from health_test_functions import overall_health
 import json
 from pathlib import Path
 
@@ -20,25 +20,25 @@ def add_task(schedule, task_name, start_time, duration):
 with open(BASE / "variable_schedule.json", "r", encoding="utf-8") as file:
     data = json.load(file)
 
-schedule = data["daily schedule"]
+for name in data:                              # every astronaut in the file
+    problems = overall_health(name)            # actually run the health check
+    schedule = data[name]["daily schedule"]
 
-if "blood_pressure" in problems:
-    schedule = remove_task(schedule, "spacewalk")
+    if "blood_pressure" in problems:
+        schedule = remove_task(schedule, "spacewalk")
+    if "bone_density" in problems:
+        schedule = change_duration(schedule, "exercise", 120)
+    if "heart_rate" in problems:
+        schedule = change_duration(schedule, "sleep", 540)
+    if "body_temp" in problems:
+        schedule = add_task(schedule, "doctor's appointment", "11:00", 30)
+    if "weight" in problems:
+        schedule = change_duration(schedule, "exercise", 120)
+    if "sleep" in problems:
+        schedule = remove_task(schedule, "photography")
+        schedule = change_duration(schedule, "sleep", 540)
 
-if "bone_density" in problems:
-    schedule = change_duration(schedule, "exercise", 120)
+    data[name]["daily schedule"] = schedule    # put the result back
 
-if "heart_rate" in problems:
-    schedule = change_duration(schedule, "sleep", 540)
-
-if "body_temp" in problems:
-    schedule = add_task(schedule, "doctor's appointment", 30)
-
-if "weight" in problems:
-    schedule = change_duration(schedule, "exercise", 120)
-
-if "sleep" in problems:
-    schedule = remove_task(schedule, "photography")
-    schedule = change_duration(schedule, "sleep", 540)
-
-file.close()
+with open(BASE / "adjusted_schedule.json", "w", encoding="utf-8") as file:
+    json.dump(data, file, indent=4)

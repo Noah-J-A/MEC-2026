@@ -46,7 +46,7 @@ def bone_density(name,T_value_decrease_month):
         if priority > 10.0:
             priority = 10.0
         return(priority)
-    file.close
+    file.close()
     return(0.0)
 
 def heart_rate_rest(name, current_bpm):
@@ -61,13 +61,13 @@ def heart_rate_rest(name, current_bpm):
     bpm_min,bpm_max = health[name]["heart rate rest avg"]
     priority = 0.0
     if current_bpm < bpm_min:
+        priority = round(abs(float(current_bpm)-float(bpm_min))/2, 2)
         if priority > 10.0:
             priority = 10.0
-        priority = round(abs(float(current_bpm)-float(bpm_min))/2, 2)
     if current_bpm > bpm_max:
+        priority = round(abs(float(current_bpm)-float(bpm_max))/2, 2)
         if priority > 10.0:
             priority = 10.0
-        priority = round(abs(float(current_bpm)-float(bpm_min))/2, 2)
     file.close()
     return(priority)
 
@@ -87,7 +87,7 @@ def body_temp(name, current_body_temp):
         if priority > 10.0:
             priority = 10.0
     if current_body_temp > body_temp_max:
-        priority = round(abs(float(current_body_temp)-float(body_temp_min)))
+        priority = round(abs(float(current_body_temp)-float(body_temp_max)))
         if priority > 10.0:
             priority = 10.0
     file.close()
@@ -101,7 +101,7 @@ def weight(name, weight_lost_or_gained):
 
     max_weight_lost_or_gain = health[name]["weight gain/loss max"]
     priority = 0.0
-    if weight_lost_or_gained > max_weight_lost_or_gain:
+    if abs(weight_lost_or_gained) > max_weight_lost_or_gain:
         priority = round(abs(float(weight_lost_or_gained)-float(max_weight_lost_or_gain)))
         if priority > 10.0:
             priority = 10.0
@@ -117,39 +117,40 @@ def sleep(name, current_sleep):
     min_sleep = health[name]["sleep"]
     priority = 0.0
     if current_sleep < min_sleep:
-        priority = round(abs(float(sleep)-float(min_sleep)))
+        priority = round(abs(float(current_sleep)-float(min_sleep)))
         if priority > 10.0:
             priority = 10.0
     file.close()
     return(priority)
 
-problems = []
+
 def overall_health(name):
+    problems = []
     file_current_health = open("currentHealth.json" , "r", encoding="utf-8")
     current_health = json.load(file_current_health)
 
-    blood_pressure = blood_pressure(name, current_health[name]["current blood pressure"][0])
-    if blood_pressure > 5:
+    blood_pressure_score = blood_pressure(name, current_health[name]["current blood pressure"][0])
+    if blood_pressure_score > 5:
         problems.append("blood_pressure")
 
-    bone_density = bone_density(name, current_health[name]["bone density decay"])
-    if bone_density > 5:
+    bone_density_score = bone_density(name, current_health[name]["bone density decay"])
+    if bone_density_score > 5:
         problems.append("bone_density")
 
-    heart_rate_rest = heart_rate_rest(name, current_health[name]["heart rate rest"])
-    if heart_rate_rest > 5:
+    heart_rate_rest_score = heart_rate_rest(name, current_health[name]["heart rate rest"])
+    if heart_rate_rest_score > 5:
         problems.append("heart_rate")
 
-    body_temp = body_temp(name, current_health[name]["body temp"])
-    if body_temp > 5:
+    body_temp_score = body_temp(name, current_health[name]["body temp"])
+    if body_temp_score > 5:
         problems.append("body_temp")
 
-    weight = weight(name, current_health[name]["weight gain/loss"])
-    if weight > 5:
+    weight_score = weight(name, current_health[name]["weight gain/loss"])
+    if weight_score > 5:
         problems.append("weight")
 
-    sleep = sleep(name, current_health[name]["sleep mins"])
-    if sleep > 5:
+    sleep_score = sleep(name, current_health[name]["sleep mins"])
+    if sleep_score > 5:
         problems.append("sleep")
 
     file_current_health.close()
