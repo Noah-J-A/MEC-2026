@@ -1,0 +1,9 @@
+{
+    "daily schedule" : [
+        {"task" : "sleep", "start_time" : "22:00", "duration" : 480},
+        {"task" : "breakfast", "start_time" : "06:00", "duration" : 15},
+        {"task" : "spacewalk", "start_time" : "7:00", "duration" : 90},
+        {"task" : "photography", "start_time" : "9:00", "duration" : 45},
+        {"task" : "research", "start_time" : "10:00", "duration" : 90}
+    ]
+}

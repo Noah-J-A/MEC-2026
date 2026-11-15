@@ -3,35 +3,42 @@
         "name" : "Required Maintenance Spacewalk",
         "category" : "maintenance",
         "importance" : 4,
-        "health effects" : ["bone density, muscle"],
-        "duration" : 90
+        "health_effects" : ["bone density", "muscle", "cardio"]
     },
     "sleep" : {
         "name" : "Daily Sleep",
         "category" : "rest",
         "importance" : 9,
-        "health effects" : ["sleep"],
-        "duration" : 480
+        "health_effects" : ["sleep"]
     },
     "photography" : {
         "name" : "Star / Earth Photos",
         "category" : "media",
         "importance" : 3,
-        "health effects" : ["none"],
-        "duration" : 45
+        "health_effects" : ["none"]
     },
     "experiments" : {
         "name" : "Astronaut-Specific Research",
         "category" : "research",
         "importance" : 6,
-        "health effects" : ["cognition"],
-        "duration" : 90
+        "health_effects" : ["cognition"]
     },
     "exercise" : {
         "name" : "Required Daily Exercise",
         "category" : "fitness",
         "importance" : 8,
-        "health effects" : ["bone density, muscle, cognition"],
-        "duration" : 60
+        "health_effects" : ["bone density", "muscle", "cognition", "cardio"]
+    },
+    "meals" : {
+        "name" : "3 Daily Meals",
+        "category" : "nutrition",
+        "importance" : 10,
+        "health_effects" : ["bone density", "muscle", "cognition"]
+    },
+    "medication" : {
+        "name" : "Daily Medical Tests",
+        "category" : "health",
+        "importance" : 9,
+        "health_effects" : ["bone density", "muscle"]
     }
 }
