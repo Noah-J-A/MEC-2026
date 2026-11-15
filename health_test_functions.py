@@ -14,13 +14,13 @@ def blood_pressure(name,current_blood_pressure):
     blood_pressure_max = health[name]["blood pressure safe range"][1][0]
     blood_pressure_min = health[name]["blood pressure safe range"][0][0]
 
-    if current_blood_pressure < blood_pressure_min:
+    if float(current_blood_pressure) < float(blood_pressure_min):
         file.close()
         priority = round(abs(float(current_blood_pressure)-float(blood_pressure_min))/2, 2)
         if priority > 10.0:
             priority = 10.0
         return(priority)
-    elif current_blood_pressure > blood_pressure_max:
+    elif float(current_blood_pressure) > float(blood_pressure_max):
         file.close()
         priority=round(abs(float(current_blood_pressure)-float(blood_pressure_max))/2, 2)
         if priority > 10.0:
@@ -40,7 +40,7 @@ def bone_density(name,T_value_decrease_month):
 
     max_bone_decay = health[name]["bone density decay rate max"]
 
-    if T_value_decrease_month < max_bone_decay:
+    if float(T_value_decrease_month) < float(max_bone_decay):
         file.close()
         priority = round(abs(float(T_value_decrease_month)-float(max_bone_decay))*10, 2)
         if priority > 10.0:
@@ -60,11 +60,11 @@ def heart_rate_rest(name, current_bpm):
 
     bpm_min,bpm_max = health[name]["heart rate rest avg"]
     priority = 0.0
-    if current_bpm < bpm_min:
+    if float(current_bpm) < float(bpm_min):
         priority = round(abs(float(current_bpm)-float(bpm_min))/2, 2)
         if priority > 10.0:
             priority = 10.0
-    if current_bpm > bpm_max:
+    if float(current_bpm) > float(bpm_max):
         priority = round(abs(float(current_bpm)-float(bpm_max))/2, 2)
         if priority > 10.0:
             priority = 10.0
@@ -82,11 +82,11 @@ def body_temp(name, current_body_temp):
 
     body_temp_min,body_temp_max = health[name]["body temp avg"]
     priority = 0.0
-    if current_body_temp < body_temp_min:
+    if float(current_body_temp) < float(body_temp_min):
         priority = round(abs(float(current_body_temp)-float(body_temp_min)))
         if priority > 10.0:
             priority = 10.0
-    if current_body_temp > body_temp_max:
+    if float(current_body_temp) > float(body_temp_max):
         priority = round(abs(float(current_body_temp)-float(body_temp_max)))
         if priority > 10.0:
             priority = 10.0
@@ -101,7 +101,7 @@ def weight(name, weight_lost_or_gained):
 
     max_weight_lost_or_gain = health[name]["weight gain/loss max"]
     priority = 0.0
-    if abs(weight_lost_or_gained) > max_weight_lost_or_gain:
+    if abs(float(weight_lost_or_gained)) > float(max_weight_lost_or_gain):
         priority = round(abs(float(weight_lost_or_gained)-float(max_weight_lost_or_gain)))
         if priority > 10.0:
             priority = 10.0
@@ -116,7 +116,7 @@ def sleep(name, current_sleep):
 
     min_sleep = health[name]["sleep"]
     priority = 0.0
-    if current_sleep < min_sleep:
+    if float(current_sleep) < float(min_sleep):
         priority = round(abs(float(current_sleep)-float(min_sleep)))
         if priority > 10.0:
             priority = 10.0

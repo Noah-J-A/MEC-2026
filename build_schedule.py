@@ -1,11 +1,21 @@
 import json
 from pathlib import Path
 from flask import Flask, render_template, request
-from health_test_functions import overall_health, problems
+from health_test_functions import overall_health
 
 
 app = Flask(__name__)
 BASE = Path(__file__).parent
+
+problems= []
+
+with open(BASE / "currentHealth.json", "r") as f:
+        health = json.load(f)
+for name in list(health.keys()):
+     problems.append(overall_health(name))
+f.close()
+
+
 
 if len(problems) == 0:
     with open(BASE / "schedule.json", "r") as file:
