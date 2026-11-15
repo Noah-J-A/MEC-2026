@@ -40,5 +40,11 @@
         "category" : "health",
         "importance" : 9,
         "health_effects" : ["bone density", "muscle"]
+    },
+    "family time" : {
+        "name" : "Call With Family",
+        "category" : "social",
+        "importance" : 7,
+        "health_effects" : ["cognition"]
     }
 }

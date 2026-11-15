@@ -6,6 +6,9 @@
         {"task" : "lunch", "start_time" : "13:00", "duration" : 15},
         {"task" : "photography", "start_time" : "13:30", "duration" : 45},
         {"task" : "research", "start_time" : "14:30", "duration" : 90},
-        {"task" : "medication", "start_time" : "16:15", "duration" : 60}
+        {"task" : "medication", "start_time" : "16:15", "duration" : 60},
+        {"task" : "exercise", "start_time" : "17:30", "duration" : 90},
+        {"task" : "dinner", "start_time" : "19:00", "duration" : 30},
+        {"task" : "family time", "start_time" : "19:45", "duration" : 120}
     ]
 }
