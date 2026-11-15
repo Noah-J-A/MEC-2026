@@ -22,18 +22,18 @@
       <tr>
         <th>Time</th>
         <th>Task</th>
-        <th>Duration</th>
+        <!-- <th>Duration</th> -->
       </tr>
     </thead>
     <tbody>
       {% for item in schedule %}
       <tr>
-        <td>{{ item.start_time }}</td>
+        <td>{{ item.start_time }} – {{ item.end_time }}</td>
         <td>{{ item.task }}</td>
-        <td>{{ item.duration }} min</td>
+        <!--<td>{{ item.duration }} min</td> -->
       </tr>
       {% endfor %}
-    </tbody>
+</tbody>
   </table>
 </body>
 </html>
