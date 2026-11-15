@@ -1,0 +1,23 @@
+{
+  "Zack Short" : {
+        "blood pressure safe range" : [[105,70],[115,75]], 
+        "bone density decay rate" : [-0.15], 
+        "heart rate" : [53,60],
+        "body temp" : [36.5,38.5]
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
