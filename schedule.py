@@ -9,7 +9,7 @@ def add_task(name, category, importance, health_effects, duration):
     }
     file.append(str(task) + "\n")
     file.close()
-
+    
 
 
 
