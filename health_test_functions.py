@@ -16,14 +16,14 @@ def blood_pressure(name,current_blood_pressure):
 
     if current_blood_pressure < blood_pressure_min:
         file.close()
-        priority = round(abs(float(current_blood_pressure)-float(blood_pressure_min)/2), 2)
-        if priority > 10:
+        priority = round(abs(float(current_blood_pressure)-float(blood_pressure_min))/2, 2)
+        if priority > 10.0:
             priority = 10.0
         return(priority)
     elif current_blood_pressure > blood_pressure_max:
         file.close()
-        priority=round(abs(float(current_blood_pressure)-float(blood_pressure_max)/2), 2)
-        if priority > 10:
+        priority=round(abs(float(current_blood_pressure)-float(blood_pressure_max))/2, 2)
+        if priority > 10.0:
             priority = 10.0
         return(priority)
     file.close()
@@ -42,8 +42,8 @@ def bone_density(name,T_value_decrease_month):
 
     if T_value_decrease_month < max_bone_decay:
         file.close()
-        priority = (round(abs(float(T_value_decrease_month)-float(max_bone_decay))*10), 2)
-        if priority > 10:
+        priority = round(abs(float(T_value_decrease_month)-float(max_bone_decay))*10, 2)
+        if priority > 10.0:
             priority = 10.0
         return(priority)
     file.close
@@ -61,9 +61,13 @@ def heart_rate_rest(name, current_bpm):
     bpm_min,bpm_max = health[name]["heart rate rest avg"]
     priority = 0.0
     if current_bpm < bpm_min:
-        priority = (round(abs(float(current_bpm)-float(min_bpm))), 2)
+        if priority > 10.0:
+            priority = 10.0
+        priority = round(abs(float(current_bpm)-float(min_bpm))/2, 2)
     if current_bpm > bpm_max:
-        priority = (round(abs(float(current_bpm)-float(max_bpm))), 2)
+        if priority > 10.0:
+            priority = 10.0
+        priority = round(abs(float(current_bpm)-float(max_bpm))/2, 2)
     file.close()
     return(priority)
 
@@ -79,7 +83,10 @@ def body_temp(name, current_body_temp):
     body_temp_min,body_temp_max = health[name]["body temp avg"]
     priority = 0.0
     if current_body_temp < body_temp_min:
-        priorit = ()
-
+        priority = round(abs(float(current_body_temp)-float(body_temp_min)))
+    if current_body_temp > body_temp_max:
+        priority = round(abs(float(current_body_temp)-float(body_temp_min)))
+    file.close()
+    return(priority)
 
 
