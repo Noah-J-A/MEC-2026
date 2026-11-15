@@ -1,10 +1,18 @@
 {
     "Zack Short": {
-        "current blood pressure": "10000,45",
-        "bone density decay": "20",
-        "heart rate rest": "23",
-        "body temp": "56",
-        "weight gain/loss": "23",
-        "sleep mins": "12"
+        "current blood pressure": "321,321",
+        "bone density decay": "321",
+        "heart rate rest": "321",
+        "body temp": "321",
+        "weight gain/loss": "231",
+        "sleep mins": "321"
+    },
+    "Gareth Jeans": {
+        "current blood pressure": "321,321",
+        "bone density decay": "321",
+        "heart rate rest": "321",
+        "body temp": "321",
+        "weight gain/loss": "231",
+        "sleep mins": "321"
     }
 }

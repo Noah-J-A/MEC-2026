@@ -89,19 +89,20 @@ def update_site():
     newBodyTemp = request.form.get('bodyTemp')
     newWeightChange = request.form.get('weightChange')
     newSleepTime = request.form.get('sleep')
-    person = next(iter(json_data))
+    people = list(json_data.keys())
 
+    new_json = {}
 
-    new_json = {
-        person: {
+    for i in range(len(people)):
+        header = people[i]
+        new_json[header] = {
             "current blood pressure" : newBP,
             "bone density decay" : newBDDecay,
             "heart rate rest" : newRestHR,
             "body temp" : newBodyTemp,
             "weight gain/loss" : newWeightChange,
             "sleep mins" : newSleepTime
-        }
-    }  
+        } 
 
 
     with open('currentHealth.json', 'w') as file:
